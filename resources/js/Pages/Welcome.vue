@@ -17,10 +17,10 @@
     <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
       <Link
         v-if="$page.props.user"
-        :href="route('dashboard')"
+        :href="route('todo')"
         class="text-sm text-gray-700 underline"
       >
-        Dashboard
+        To do
       </Link>
 
       <template v-else>
