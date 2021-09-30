@@ -5,6 +5,7 @@
 [![Twitter: sandochee](https://img.shields.io/twitter/follow/sandochee.svg?style=social)](https://twitter.com/sandochee)
 
 > A simple demo todo app to try Jetstream with Inertia
+
 👉 https://jetstream-inertia-laravel-todo.herokuapp.com/
 
 ## 📖 How to use
