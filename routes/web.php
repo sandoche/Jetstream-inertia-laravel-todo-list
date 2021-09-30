@@ -37,3 +37,7 @@ Route::get('todo', [TasksController::class, 'index'])
 Route::post('todo', [TasksController::class, 'store'])
     ->name('todo.store')
     ->middleware(['auth:sanctum', 'verified']);
+
+Route::put('todo', [TasksController::class, 'update'])
+    ->name('todo.update')
+    ->middleware(['auth:sanctum', 'verified']);

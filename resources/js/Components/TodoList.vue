@@ -32,9 +32,7 @@ export default {
   props: {
     tasks: Array,
   },
-  setup(props) {
-    console.log(props);
-
+  setup() {
     const form = useForm({
       text: null,
     });

@@ -28,4 +28,16 @@ class TasksController extends Controller
 
         return Redirect::route('todo.index');
     }
+
+    public function update(Task $task)
+    {
+        $task->update(
+            Request::validate([
+                'id' => ['required'],
+                'is_done' => ['required']
+            ])
+        );
+
+        return Redirect::route('todo.index');
+    }
 }
