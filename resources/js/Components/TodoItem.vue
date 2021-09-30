@@ -1,12 +1,14 @@
 <template>
   <li :class="{ 'line-through': isDone }">
     <input
+      ref="input"
       type="checkbox"
-      :id="id"
+      :id="`check-${id}`"
       v-model="form.is_done"
       @change="markAsDone"
+      :value="form.is_done"
     />&nbsp;
-    <label :for="id">
+    <label :for="`check-${id}`">
       <slot></slot>
     </label>
   </li>
@@ -14,17 +16,24 @@
 
 <script>
 import { useForm } from "@inertiajs/inertia-vue3";
+import { onMounted } from "vue";
 
 export default {
   name: "TodoItem",
   props: {
     id: Number,
-    isDone: Boolean,
+    isDone: Number,
   },
-  setup(props) {
+  setup(props, { emit }) {
     const form = useForm({
       id: props.id,
-      is_done: props.isDone
+      is_done: props.isDone,
+    });
+
+    onMounted(() => {
+      if (form.is_done) {
+        document.querySelector(`#check-${props.id}`).checked = true;
+      }
     });
 
     function markAsDone() {
