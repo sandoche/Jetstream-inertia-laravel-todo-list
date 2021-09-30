@@ -1,5 +1,5 @@
 <template>
-  <li :class="{ 'line-through': is_done }">
+  <li :class="{ 'line-through': isDone }">
     <input
       type="checkbox"
       :id="id"
@@ -19,12 +19,12 @@ export default {
   name: "TodoItem",
   props: {
     id: Number,
-    is_done: Boolean,
+    isDone: Boolean,
   },
   setup(props) {
     const form = useForm({
       id: props.id,
-      is_done: props.is_done
+      is_done: props.isDone
     });
 
     function markAsDone() {

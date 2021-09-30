@@ -6,8 +6,8 @@ use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request as Req;
 use Inertia\Inertia;
-
 
 class TasksController extends Controller
 {
@@ -29,9 +29,9 @@ class TasksController extends Controller
         return Redirect::route('todo.index');
     }
 
-    public function update(Task $task)
+    public function update(Task $task, Req $request)
     {
-        info('Test', ['task' => $task]);
+        $task->is_done = $request->input('is_done');
 
         $task->update(
             Request::validate([
