@@ -13,8 +13,12 @@ class TasksController extends Controller
 {
     public function index()
     {
+
+        $tasks = Auth::user()->tasks;
+        $tasks = $tasks->sortByDesc('id')->values();
+
         return Inertia::render('Dashboard', [
-            'tasks' => Auth::user()->tasks->reverse()->values()
+            'tasks' => $tasks
         ]);
     }
 
