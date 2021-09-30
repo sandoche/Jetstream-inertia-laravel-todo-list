@@ -17,7 +17,7 @@
     <div v-if="canLogin" class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
       <Link
         v-if="$page.props.user"
-        :href="route('todo')"
+        :href="route('todo.index')"
         class="text-sm text-gray-700 underline"
       >
         To do

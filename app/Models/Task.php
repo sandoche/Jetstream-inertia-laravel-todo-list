@@ -18,6 +18,12 @@ class Task extends Model
         'is_done' => false,
     ];
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['text'];
 
     /**
      * Get the user that owns this task.

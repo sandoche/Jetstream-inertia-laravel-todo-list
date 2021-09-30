@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TasksController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,6 +25,15 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/todo', function () {
-    return Inertia::render('Dashboard');
-})->name('todo');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/todo', function () {
+//     return Inertia::render('Dashboard');
+// })->name('todo');
+
+
+Route::get('todo', [TasksController::class, 'index'])
+    ->name('todo.index')
+    ->middleware(['auth:sanctum', 'verified']);
+
+Route::post('todo', [TasksController::class, 'store'])
+    ->name('todo.store')
+    ->middleware(['auth:sanctum', 'verified']);

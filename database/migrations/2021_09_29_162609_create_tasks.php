@@ -17,6 +17,7 @@ class CreateTasks extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->text('text');
+            $table->boolean('is_done');
             $table->timestamps();
         });
     }

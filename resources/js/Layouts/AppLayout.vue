@@ -12,14 +12,14 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <Link :href="route('todo')">
+                                <Link :href="route('todo.index')">
                                     <jet-application-mark class="block h-9 w-auto" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('todo')" :active="route().current('todo')">
+                                <jet-nav-link :href="route('todo.index')" :active="route().current('todo.index')">
                                     To Do
                                 </jet-nav-link>
                             </div>
@@ -142,7 +142,7 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <jet-responsive-nav-link :href="route('todo')" :active="route().current('todo')">
+                        <jet-responsive-nav-link :href="route('todo.index')" :active="route().current('todo.index')">
                             To Do
                         </jet-responsive-nav-link>
                     </div>
