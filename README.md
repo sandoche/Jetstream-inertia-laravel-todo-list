@@ -12,6 +12,6 @@ php artisan migrate
 
 ## Run
 ```sh
-npm run watch
+npm run watch-poll
 php artisan serve
 ```
