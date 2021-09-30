@@ -14,7 +14,7 @@ class TasksController extends Controller
     public function index()
     {
         return Inertia::render('Dashboard', [
-            'tasks' => Auth::user()->tasks
+            'tasks' => Auth::user()->tasks->reverse()->values()
         ]);
     }
 
