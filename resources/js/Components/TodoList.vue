@@ -9,8 +9,13 @@
       </form>
     </div>
     <div>
+      Filters: <span @click="setFilter('all')">All</span> |
+      <span @click="setFilter('todo')">To do</span> |
+      <span @click="setFilter('done')">Done</span>
+    </div>
+    <div>
       <todo-item
-        v-for="task in tasks"
+        v-for="task in filteredTasks"
         :key="task.id"
         :id="task.id"
         :is-done="task.is_done"
@@ -25,7 +30,7 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import TodoItem from "@/Components/TodoItem.vue";
 
 export default {
-  name: 'TodoList',
+  name: "TodoList",
   components: {
     TodoItem,
   },
@@ -46,6 +51,27 @@ export default {
     }
 
     return { form, submit };
+  },
+  data() {
+    return {
+      filterBy: "all",
+    };
+  },
+  methods: {
+    setFilter(newFilter) {
+      this.filterBy = newFilter;
+    },
+  },
+  computed: {
+    filteredTasks() {
+      if (this.filterBy === 'all') {
+        return this.tasks
+      } else {
+        return this.tasks.filter(task => {
+          return task.is_done && this.filterBy === 'done' || !task.is_done && this.filterBy === 'todo'
+        })
+      }
+    },
   },
 };
 </script>
