@@ -1,5 +1,5 @@
 <template>
-  <li :class="{ 'line-through': isDone }">
+  <li :class="['mb-1', { 'line-through': isDone }]">
     <input
       ref="input"
       type="checkbox"

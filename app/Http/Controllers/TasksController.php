@@ -33,12 +33,14 @@ class TasksController extends Controller
     {
         $task->is_done = $request->input('is_done');
 
-        $task->update(
-            Request::validate([
-                'id' => ['required'],
-                'is_done' => ['required']
-            ])
-        );
+        if ($task->user_id == Auth::user()->id) {
+            $task->update(
+                Request::validate([
+                    'id' => ['required'],
+                    'is_done' => ['required']
+                ])
+            );
+        }
 
         return Redirect::route('todo.index');
     }
