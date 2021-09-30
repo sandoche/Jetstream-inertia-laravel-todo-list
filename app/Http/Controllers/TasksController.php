@@ -13,14 +13,16 @@ class TasksController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard', [
+            'tasks' => Auth::user()->tasks
+        ]);
     }
 
     public function store()
     {
         Auth::user()->tasks()->create(
             Request::validate([
-                'text' => ['required']
+                'text' => ['required', 'min:3']
             ])
         );
 
