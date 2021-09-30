@@ -25,11 +25,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::middleware(['auth:sanctum', 'verified'])->get('/todo', function () {
-//     return Inertia::render('Dashboard');
-// })->name('todo');
-
-
 Route::get('todo', [TasksController::class, 'index'])
     ->name('todo.index')
     ->middleware(['auth:sanctum', 'verified']);
@@ -38,6 +33,6 @@ Route::post('todo', [TasksController::class, 'store'])
     ->name('todo.store')
     ->middleware(['auth:sanctum', 'verified']);
 
-Route::put('todo', [TasksController::class, 'update'])
+Route::put('todo/{task}', [TasksController::class, 'update'])
     ->name('todo.update')
     ->middleware(['auth:sanctum', 'verified']);

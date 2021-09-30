@@ -24,11 +24,11 @@ export default {
   setup(props) {
     const form = useForm({
       id: props.id,
-      is_done: props.is_done,
+      is_done: props.is_done
     });
 
     function markAsDone() {
-      form.put("/todo");
+      form.put(`/todo/${props.id}`);
     }
 
     return { form, markAsDone };

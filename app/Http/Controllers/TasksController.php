@@ -31,6 +31,8 @@ class TasksController extends Controller
 
     public function update(Task $task)
     {
+        info('Test', ['task' => $task]);
+
         $task->update(
             Request::validate([
                 'id' => ['required'],
