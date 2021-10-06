@@ -35,8 +35,6 @@ class TasksController extends Controller
 
     public function update(Task $task, Req $request)
     {
-        $task->is_done = $request->input('is_done');
-
         if ($task->user_id == Auth::user()->id) {
             $task->update(
                 Request::validate([
